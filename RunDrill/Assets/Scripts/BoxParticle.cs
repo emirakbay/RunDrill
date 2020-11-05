@@ -1,10 +1,9 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class BoxParticle : MonoBehaviour
 {
-    private ParticleSystem particle;
+    public ParticleSystem particle;
 
     public static BoxParticle Instance;
 
@@ -15,24 +14,24 @@ public class BoxParticle : MonoBehaviour
             Instance = this;
         }
 
-
         particle = GetComponentInChildren<ParticleSystem>();
     }
 
-    public void Play()
+    public IEnumerator Break()
     {
         particle.Play();
+
+        yield return new WaitForSeconds(particle.main.startLifetime.constantMax);
     }
 
-    private void Update()
+    public void DestroyBox(GameObject objToDestroy)
     {
-       
+        Destroy(objToDestroy);
     }
 
-    public void BlockParticle()
+    public void SetParticlePosition(GameObject objToSet)
     {
-        var particles = transform.GetChild(1);
-        particles.SetParent(null);
-        particles.gameObject.SetActive(true);
+        particle.transform.position = objToSet.gameObject.transform.position;
     }
+
 }

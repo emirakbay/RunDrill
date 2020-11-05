@@ -29,7 +29,9 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetMouseButton(0))
             {
-                DestroyBlock(collision.gameObject);
+                BoxParticle.Instance.SetParticlePosition(collision.gameObject);
+                StartCoroutine(BoxParticle.Instance.Break());
+                BoxParticle.Instance.DestroyBox(collision.gameObject);
             }
         }
     }
@@ -40,7 +42,9 @@ public class PlayerMovement : MonoBehaviour
         {
             if (Input.GetMouseButton(0))
             {
-                DestroyBlock(collision.gameObject);
+                BoxParticle.Instance.SetParticlePosition(collision.gameObject);
+                StartCoroutine(BoxParticle.Instance.Break());
+                BoxParticle.Instance.DestroyBox(collision.gameObject);
             }
         }
 
@@ -50,14 +54,15 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-
     private void OnCollisionExit(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
             if (Input.GetMouseButton(0))
             {
-                DestroyBlock(collision.gameObject);
+                BoxParticle.Instance.SetParticlePosition(collision.gameObject);
+                StartCoroutine(BoxParticle.Instance.Break());
+                BoxParticle.Instance.DestroyBox(collision.gameObject);
             }
         }
 
@@ -73,10 +78,5 @@ public class PlayerMovement : MonoBehaviour
         //tempVect = tempVect.normalized * speed * Time.fixedDeltaTime;
         //rb.MovePosition(transform.position + tempVect);
         transform.position = transform.position + Vector3.forward * speed;
-    }
-
-    private void DestroyBlock(GameObject objToDestroy)
-    {
-        Destroy(objToDestroy);
     }
 }

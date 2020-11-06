@@ -6,6 +6,15 @@ public class LevelGenerator : MonoBehaviour
 
     public ColorToPrefab[] colorToPrefabs;
 
+    public float distanceFromGround;
+
+    public static LevelGenerator Instance;
+
+    private void Awake()
+    {
+        Instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,8 +51,8 @@ public class LevelGenerator : MonoBehaviour
                 if (colorMapping.color.Equals(Color.blue))
                 {
                     FollowPlayer.Instance.SetupFollowPlayer(go.transform);
+                    distanceFromGround = Vector3.Distance(go.transform.position, new Vector3(0, 0, 0));
                 }
-
             }
         }
     }

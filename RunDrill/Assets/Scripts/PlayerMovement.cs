@@ -4,36 +4,23 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed = 1f;
 
-    private Rigidbody rb;
-
     public static PlayerMovement Instance;
+
+    private Rigidbody rb;
 
     private void Awake()
     {
         Instance = this;
     }
 
-    public void Start()
+    private void Start()
     {
         rb = GetComponent<Rigidbody>();
     }
 
-    public void FixedUpdate()
+    private void FixedUpdate()
     {
         MovePlayer();
-    }
-
-    private void OnCollisionStay(Collision collision)
-    {
-        if (collision.gameObject.CompareTag("Ground"))
-        {
-            if (Input.GetMouseButton(0))
-            {
-                BoxParticle.Instance.SetParticlePosition(collision.gameObject);
-                StartCoroutine(BoxParticle.Instance.Break());
-                BoxParticle.Instance.DestroyBox(collision.gameObject);
-            }
-        }
     }
 
     private void OnCollisionEnter(Collision collision)
@@ -51,6 +38,19 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.CompareTag("Obstacle"))
         {
             Debug.Log("Game over");
+        }
+    }
+
+    private void OnCollisionStay(Collision collision)
+    {
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            if (Input.GetMouseButton(0))
+            {
+                BoxParticle.Instance.SetParticlePosition(collision.gameObject);
+                StartCoroutine(BoxParticle.Instance.Break());
+                BoxParticle.Instance.DestroyBox(collision.gameObject);
+            }
         }
     }
 
@@ -78,5 +78,10 @@ public class PlayerMovement : MonoBehaviour
         //tempVect = tempVect.normalized * speed * Time.fixedDeltaTime;
         //rb.MovePosition(transform.position + tempVect);
         transform.position = transform.position + Vector3.forward * speed;
+    }
+
+    public float getDistance()
+    {
+        return rb.transform.position.y;
     }
 }

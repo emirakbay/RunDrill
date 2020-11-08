@@ -786,11 +786,11 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8093321755466913865}
-  - component: {fileID: 396793606898197970}
   - component: {fileID: 7713294033841173946}
   - component: {fileID: 4736365270006129072}
   - component: {fileID: -8172053329156331231}
   - component: {fileID: -6907822830530483781}
+  - component: {fileID: -2117966596379207631}
   m_Layer: 0
   m_Name: Robot Kyle
   m_TagString: Player
@@ -814,21 +814,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!111 &396793606898197970
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5046873379712084570}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 0}
-  m_Animations: []
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 1
 --- !u!54 &7713294033841173946
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -884,6 +869,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gravityScale: 2
+--- !u!95 &-2117966596379207631
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5046873379712084570}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0e5e7b285a3e6d34bb57800ea250c39f, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5227608866515322470
 GameObject:
   m_ObjectHideFlags: 0

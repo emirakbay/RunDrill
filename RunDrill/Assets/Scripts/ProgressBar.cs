@@ -5,6 +5,8 @@ public class ProgressBar : MonoBehaviour
 {
     private Slider slider;
 
+    private Robot robot;
+
     public float fillSpeed = 0.5f;
 
     public Transform player;
@@ -18,6 +20,8 @@ public class ProgressBar : MonoBehaviour
     private void Start()
     {
         maxDistance = LevelGenerator.Instance.distanceFromGround;
+
+        robot = FindObjectOfType<Robot>();
     }
 
     private void Update()
@@ -26,6 +30,11 @@ public class ProgressBar : MonoBehaviour
         {
             float distance = 1 - (PlayerMovement.Instance.getDistance() / maxDistance);
             setProgress(distance);
+        }
+
+        if (robot.dead)
+        {
+            gameObject.SetActive(false);
         }
     }
 

@@ -13,7 +13,6 @@ public class PlayerMovement : MonoBehaviour
         Instance = this;
     }
 
-
     private void Start()
     {
         robot = GetComponentInParent<Robot>();
@@ -38,6 +37,6 @@ public class PlayerMovement : MonoBehaviour
     {
         var animatedRb = gameObject.transform.GetChild(0).GetComponent<Rigidbody>();
 
-        return animatedRb.worldCenterOfMass.y - 1f;
+        return animatedRb.worldCenterOfMass.y - 0.75f;
     }
 }

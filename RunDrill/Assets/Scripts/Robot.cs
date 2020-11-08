@@ -5,7 +5,7 @@ public class Robot : MonoBehaviour
     [SerializeField] private GameObject _ragdoll;
     [SerializeField] private GameObject _animatedModel;
 
-    private bool _dead;
+    public bool dead;
 
     public static Robot Instance;
 
@@ -18,7 +18,7 @@ public class Robot : MonoBehaviour
 
         _ragdoll.gameObject.SetActive(false);
 
-        _dead = false;
+        dead = false;
     }
 
     private void CopyTransformData(Transform sourceTransform, Transform destinationTransform)
@@ -43,13 +43,14 @@ public class Robot : MonoBehaviour
 
     public void ToggleDead()
     {
-        _dead = !_dead;
+        dead = true;
 
-        if (_dead)
+        if (dead)
         {
             CopyTransformData(_animatedModel.transform, _ragdoll.transform);
             _ragdoll.gameObject.SetActive(true);
             _animatedModel.gameObject.SetActive(false);
+            FollowPlayer.Instance.OnDie();
         }
     }
 }

@@ -6,14 +6,26 @@ public class PlayerMovement : MonoBehaviour
 
     public static PlayerMovement Instance;
 
+    private Robot robot;
+
     private void Awake()
     {
         Instance = this;
     }
 
+
+    private void Start()
+    {
+        robot = GetComponentInParent<Robot>();
+    }
+
     private void FixedUpdate()
     {
-        MovePlayer();
+        if (robot.dead)
+            return;
+
+        else
+            MovePlayer();
     }
 
     private void MovePlayer()

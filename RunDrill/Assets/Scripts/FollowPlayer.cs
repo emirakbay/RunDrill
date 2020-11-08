@@ -28,6 +28,10 @@ public class FollowPlayer : MonoBehaviour
         targetTransform = targetPlayer.transform;
 
         vcam.Follow = targetTransform;
-  
+    }
+
+    public void OnDie()
+    {
+        vcam.Follow = null;
     }
 }

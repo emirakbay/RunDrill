@@ -2,6 +2,13 @@
 
 public class AnimatedRobotCollision : MonoBehaviour
 {
+    private Robot _robot;
+
+    private void Start()
+    {
+        _robot = GetComponentInParent<Robot>();
+    }
+
     private void OnCollisionEnter(Collision collision)
     {
         if (collision.gameObject.CompareTag("Ground"))
@@ -16,8 +23,7 @@ public class AnimatedRobotCollision : MonoBehaviour
 
         if (collision.gameObject.CompareTag("Obstacle"))
         {
-            var robotObj = gameObject.GetComponentInParent<Robot>();
-            robotObj.ToggleDead();
+            _robot.ToggleDead();
         }
     }
 
@@ -32,12 +38,6 @@ public class AnimatedRobotCollision : MonoBehaviour
                 BoxParticle.Instance.DestroyBox(collision.gameObject);
             }
         }
-
-        if (collision.gameObject.CompareTag("Obstacle"))
-        {
-            var robotObj = gameObject.GetComponentInParent<Robot>();
-            robotObj.ToggleDead();
-        }
     }
 
     private void OnCollisionExit(Collision collision)
@@ -51,12 +51,5 @@ public class AnimatedRobotCollision : MonoBehaviour
                 BoxParticle.Instance.DestroyBox(collision.gameObject);
             }
         }
-
-        if (collision.gameObject.CompareTag("Obstacle"))
-        {
-            var robotObj = gameObject.GetComponentInParent<Robot>();
-            robotObj.ToggleDead();
-        }
     }
-
 }

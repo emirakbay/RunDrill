@@ -397,7 +397,7 @@ MonoBehaviour:
   - color: {r: 1, g: 0, b: 0, a: 1}
     prefab: {fileID: 962913424511164960, guid: e0a6773c37afbe34d9d31f9adf080213, type: 3}
   - color: {r: 0, g: 0, b: 1, a: 1}
-    prefab: {fileID: 5046873379712084570, guid: 7267d97bc99afa7438f95c1f72808c06,
+    prefab: {fileID: 7958076237919274534, guid: 3d5f4ec9199da8e4d91c5e7e59bbce52,
       type: 3}
   - color: {r: 0, g: 1, b: 0, a: 1}
     prefab: {fileID: 5260372507012219910, guid: 88fa49d03f69e7e4ea06c38883c24c14,
@@ -470,7 +470,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fillSpeed: 0.5
-  player: {fileID: 8093321755466913865, guid: 7267d97bc99afa7438f95c1f72808c06, type: 3}
+  player: {fileID: 7958076237919274537, guid: 3d5f4ec9199da8e4d91c5e7e59bbce52, type: 3}
   endLine: {fileID: 5285482646529702818, guid: 88fa49d03f69e7e4ea06c38883c24c14, type: 3}
   maxDistance: 0
 --- !u!114 &682154948

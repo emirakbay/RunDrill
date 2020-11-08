@@ -325,7 +325,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.12613286
+  m_Radius: 0.05
   m_Height: 0.50453144
   m_Direction: 0
   m_Center: {x: -0.25226572, y: 0, z: 0}
@@ -386,7 +386,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9f05847db03e7c84f8bb109141d599ed, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentRobot: {fileID: 0}
 --- !u!54 &7958076237978627532
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -666,7 +665,7 @@ CapsuleCollider:
   m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_Enabled: 1
-  m_Radius: 0.07
+  m_Radius: 0.06
   m_Height: 0.37173396
   m_Direction: 0
   m_Center: {x: -0.18586698, y: 0, z: 0.07}

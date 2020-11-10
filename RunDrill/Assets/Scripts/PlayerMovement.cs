@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
 
     private Robot robot;
 
+    private AnimatedRobotCollision animatedRobot;
+
     private void Awake()
     {
         Instance = this;
@@ -16,11 +18,12 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         robot = GetComponentInParent<Robot>();
+        animatedRobot = GetComponentInChildren<AnimatedRobotCollision>();
     }
 
     private void FixedUpdate()
     {
-        if (robot.dead)
+        if (robot.dead || animatedRobot.isFinished)
             return;
 
         else
@@ -32,7 +35,6 @@ public class PlayerMovement : MonoBehaviour
         transform.position = transform.position + Vector3.forward * speed;
     }
 
- 
     public float getDistance()
     {
         var animatedRb = gameObject.transform.GetChild(0).GetComponent<Rigidbody>();

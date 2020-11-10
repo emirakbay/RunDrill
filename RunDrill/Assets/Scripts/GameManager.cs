@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
@@ -9,17 +8,17 @@ public class GameManager : MonoBehaviour
 
     public float restartDelay = 3f;
 
-    public void EndGame()
+    public void RestartGame()
     {
         if (gameHasEnded == false)
         {
             gameHasEnded = true;
             Debug.Log("GameOver");
-            Invoke(nameof(RestartGame), restartDelay);
+            Invoke(nameof(LoadSceneAgain), restartDelay);
         }
     }
 
-    void RestartGame()
+    void LoadSceneAgain()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }

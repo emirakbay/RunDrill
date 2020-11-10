@@ -51,7 +51,7 @@ public class Robot : MonoBehaviour
             _ragdoll.gameObject.SetActive(true);
             _animatedModel.gameObject.SetActive(false);
             FollowPlayer.Instance.OnDie();
-            FindObjectOfType<GameManager>().EndGame();
+            FindObjectOfType<GameManager>().RestartGame();
         }
     }
 }

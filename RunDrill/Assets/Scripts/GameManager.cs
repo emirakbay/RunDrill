@@ -5,6 +5,7 @@ public class GameManager : MonoBehaviour
 {
 
     public bool gameHasEnded = false;
+    public bool levelHasEnded = false;
 
     public float restartDelay = 3f;
 
@@ -16,6 +17,21 @@ public class GameManager : MonoBehaviour
             Debug.Log("GameOver");
             Invoke(nameof(LoadSceneAgain), restartDelay);
         }
+    }
+
+    public void NextLevel()
+    {
+        if (levelHasEnded == false)
+        {
+            levelHasEnded = true;
+            Debug.Log("LevelOver");
+            Invoke(nameof(LoadNextLevel), restartDelay);
+        }
+    }
+
+    public void LoadNextLevel()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
     void LoadSceneAgain()

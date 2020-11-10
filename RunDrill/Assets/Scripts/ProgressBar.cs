@@ -29,7 +29,7 @@ public class ProgressBar : MonoBehaviour
         if (player.position.y <= maxDistance && player.position.y <= endLine.position.y)
         {
             float distance = 1 - (PlayerMovement.Instance.getDistance() / maxDistance);
-            setProgress(distance);
+            SetProgress(distance);
         }
 
         if (robot.dead)
@@ -48,7 +48,7 @@ public class ProgressBar : MonoBehaviour
         slider = GetComponent<Slider>();
     }
 
-    public void setProgress(float newProgress)
+    public void SetProgress(float newProgress)
     {
         slider.value = newProgress;
     }

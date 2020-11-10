@@ -35,6 +35,7 @@ public class AnimatedRobotCollision : MonoBehaviour
             isFinished = true;
             PlaneParticle.Instance.SetParticlePosition(gameObject.transform.position);
             StartCoroutine(PlaneParticle.Instance.PlayWinParticles());
+            FindObjectOfType<GameManager>().NextLevel();
         }
     }
 
